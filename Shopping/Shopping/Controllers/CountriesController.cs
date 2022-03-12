@@ -19,7 +19,7 @@ namespace Shopping.Controllers
         {
             _context = context;
         }
-        
+
         // GET: Countries
         public async Task<IActionResult> Index()
         {
@@ -100,7 +100,7 @@ namespace Shopping.Controllers
             return View(country);
         }
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Country country)
@@ -166,6 +166,6 @@ namespace Shopping.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-       
+
     }
 }

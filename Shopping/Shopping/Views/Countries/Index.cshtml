@@ -7,8 +7,9 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
 
 <p>
-    <a asp-action="Create" class="btn btn-outline-primary">Crear Nuevo País</a>
+    <a asp-action="Create" class="btn btn-outline-primary">Crear Nuevo</a>
 </p>
+
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-default">
@@ -17,17 +18,18 @@
             </div>
             <div class="panel-body">
                 <table class="table table-hover table-responsive table-striped" id="MyTable">
-
                     <thead>
                         <tr>
                             <th>
                                 @Html.DisplayNameFor(model => model.Name)
                             </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StatesNumber)
+                            </th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-
                         @foreach (var item in Model)
                         {
                             <tr>
@@ -35,9 +37,12 @@
                                     @Html.DisplayFor(modelItem => item.Name)
                                 </td>
                                 <td>
-                                    <a asp-action="Edit" class="btn btn-outline-warning" asp-route-id="@item.Id">Editar</a>
-                                    <a asp-action="Details" class="btn btn-outline-info" asp-route-id="@item.Id">Detalles</a>
-                                    <a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.Id">Borrar</a>
+                                    @Html.DisplayFor(modelItem => item.StatesNumber)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-warning">Editar</a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info">Detalles</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">Borrar</a>
                                 </td>
                             </tr>
                         }
@@ -49,23 +54,22 @@
 </div>
 
 @section Scripts {
-   @{
-     await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#MyTable').DataTable({
-            "language": {
-                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
-            },
-            "aLengthMenu": [
-                [25, 50, 100, 200, -1],
-                [25, 50, 100, 200, "Todos"]
-            ]
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#MyTable').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+                },
+                "aLengthMenu": [
+                    [25, 50, 100, 200, -1],
+                    [25, 50, 100, 200, "Todos"]
+                ]
+            });
         });
-    });
-</script>
+    </script>
 }
-
