@@ -4,7 +4,7 @@
 
 namespace Shopping.Migrations
 {
-    public partial class Corrections : Migration
+    public partial class corrections : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

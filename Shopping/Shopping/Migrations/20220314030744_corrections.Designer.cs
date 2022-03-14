@@ -11,8 +11,8 @@ using Shopping.Data;
 namespace Shopping.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220312035727_Corrections")]
-    partial class Corrections
+    [Migration("20220314030744_corrections")]
+    partial class corrections
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

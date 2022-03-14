@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Shopping.Data.Entities
+namespace Shopping.Models
 {
-    public class State
+    public class StateViewModel
     {
         public int Id { get; set; }
 
@@ -11,12 +11,7 @@ namespace Shopping.Data.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public string Name { get; set; }
 
-        public Country Country { get; set; }
+        public int CountryId { get; set; }
 
-        public ICollection<City> Cities { get; set; }
-
-        [Display(Name = "Ciudades")]
-        public int CitiesNumber => Cities == null ? 0 : Cities.Count;
     }
 }
-
